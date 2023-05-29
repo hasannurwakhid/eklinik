@@ -27,7 +27,7 @@
                         </div>
                     @endif
                     <div class="row mb-4 px-3">
-                        <h2 class="mb-0 mr-4 mt-2">Masuk E-Klinik asjhasah</h2>
+                        <h2 class="mb-0 mr-4 mt-2">Masuk E-Klinik</h2>
                     </div>
                     <form action="/login" method="post">
                         @csrf
