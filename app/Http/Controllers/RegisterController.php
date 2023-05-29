@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserData;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -22,7 +23,15 @@ class RegisterController extends Controller
         ]);
         // $ValidatedData['password'] = bcrypt($ValidatedData['password']);
         $ValidatedData['password'] = Hash::make($ValidatedData['password']);
+
+        $userdata = [
+                'username' => $ValidatedData['username'],
+                'email' => $ValidatedData['email']
+        ];
+
         User::create($ValidatedData);
+        UserData::create($userdata);
+        
         // $request = session();
         // $request->session()->flash('success', 'Registrasi Berhasil! Silahkan login');
         return redirect('/login')->with('success', 'Registrasi Berhasil! Silahkan Login');

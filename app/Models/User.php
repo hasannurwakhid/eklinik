@@ -27,6 +27,10 @@ class User extends Authenticatable
         'id'
     ];
 
+    public function UserData(){
+        return $this->belongsTo(UserData::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
