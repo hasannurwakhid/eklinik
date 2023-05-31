@@ -24,13 +24,19 @@ class RegisterController extends Controller
         // $ValidatedData['password'] = bcrypt($ValidatedData['password']);
         $ValidatedData['password'] = Hash::make($ValidatedData['password']);
 
-        $userdata = [
+        // $userdata = [
+        //         'username' => $ValidatedData['username'],
+        //         'email' => $ValidatedData['email']
+        // ];
+
+        $user = User::create($ValidatedData);
+            
+        $user->UserData()->create([
                 'username' => $ValidatedData['username'],
                 'email' => $ValidatedData['email']
-        ];
+        ]);
 
-        User::create($ValidatedData);
-        UserData::create($userdata);
+        // UserData::cre    ate($user);
         
         // $request = session();
         // $request->session()->flash('success', 'Registrasi Berhasil! Silahkan login');

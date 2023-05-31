@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
     public function UserData(){
-        return $this->belongsTo(UserData::class);
+        return $this->hasOne(UserData::class);
     }
 
     /**
